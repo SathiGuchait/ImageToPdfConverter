@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>picture converter</title>
+  <style>
+    body {
+      border: 5px;
+      padding: 5px;
+      background: linear-gradient(110deg, #0a0a0a 60%, #0c0b0c 60%);
+      color: rgb(231, 234, 240);
+    }
+
+    h1 {
+      text-align: center;
+      text-transform: capitalize;
+      color: rgb(12, 163, 12);
+    }
+
+    P {
+      text-align: center;
+      color: rgb(12, 163, 12);
+    }
+
+    .a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .b {
+      justify-content: center;
+      background: linear-gradient(110deg, #3ca8a8 60%, #399c9c 60%);
+
+      border-color: rgb(9, 9, 15);
+      border-radius: 10%;
+      height: 250px;
+      width: 300px;
+      box-shadow: 0px 0px 20px rgb(45, 211, 114);
+
+
+    }
+
+    .input {
+      padding-left: 50px;
+      padding-top: 20px;
+    }
+
+    .tim {
+      justify-content: right;
+      color: antiquewhite;
+      font-size: 20px;
+    }
+
+    #submit {
+      text-align: center;
+      background-color: rgb(12, 218, 12);
+      height: 30px;
+      width: 90px;
+    }
+
+    .submit {
+
+      padding-top: 20px;
+      padding-left: 40px;
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>JPG TO PDF</h1>
+  <p class="tim"><span id="time"></span></p>
+  <p>You Can Easily Convert Picture To PDF</p>
+  <div class="a">
+    <form action="/con" method="POST" enctype="multipart/form-data" >
+      <div class="b" id="b">
+        <div class="input">
+          <label for="myfile">SELECT PHOTO</label><br><br>
+          <input type="file" id="photo" name="photo" multiple>
+          <br><br>
+          <input type="text"  placeholder="pdf name" name="name" value="" />
+        </div>
+        <br><br>
+        <div class="submit">
+          <input type="submit" id="submit" value="submit" />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    
+      let a;
+      let timee;
+      let date;
+      const spl={weekday:'long',day:'numeric',month:'long',year:'numeric'};
+      setInterval(() => {
+        a = new Date();
+        date = a.toLocaleDateString(undefined,spl)
+        timee = a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds()
+        //console.log(timee, date)
+        document.getElementById('time').innerHTML = timee + " " + "<br> on" + " " + date;
+      }, 1000);
+ 
+
+  </script>
+</body>
+
+</html>
